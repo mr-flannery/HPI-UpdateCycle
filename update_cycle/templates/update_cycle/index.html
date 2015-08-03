@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Dashboard</h1>
+	<br>
+	
+		{% if pages %}
+	    	<table class="table table-striped table-bordered">
+	    		<th>Name</th>
+	    		<th>URL</th>
+	    		<th>Kommentar</th>
+	    		<th>Ansprechpartner</th>
+	    		<th>Nächstes Update</th>
+	    		{% for page in pages %}
+	    			<tr>
+		    			<td>{{ page.name }}</td>
+		    			<td><a href="{{ page.url }}">{{ page.url }}</a></td>
+		    			<td>{{ page.comment }}</td>
+		    			<td>{{ page.contact_person }}</td>
+		    			<td>{{ page.next_update_at }}</td>
+		    		</tr>	
+	    		{% endfor %}
+	    	</table>
+		{% else %}
+			<p>No pages are available.</p>
+		{% endif %}
+	
+	
+{% endblock content %}
