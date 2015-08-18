@@ -18,6 +18,7 @@
 		    			<td>{{ page.comment }}</td>
 		    			<td>{{ page.contact_person }}</td>
 		    			<td>{{ page.next_update_at }}</td>
+		    			<td><a href="{% url 'update_cycle:edit' page.id %}">Edit</a></td>
 		    		</tr>	
 	    		{% endfor %}
 	    	</table>

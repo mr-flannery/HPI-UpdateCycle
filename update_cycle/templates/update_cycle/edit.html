@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>Test</h1>
+
+	<h1>Neue Seite anlegen</h1>
+	<br>
+
+	<form method="post" action="{% url 'update_cycle:edit' form.instance.id %}">
+		{% csrf_token %}
+		{{ form }}
+		<input type="submit" value="Submit">
+	</form>
+
 {% endblock content %}
