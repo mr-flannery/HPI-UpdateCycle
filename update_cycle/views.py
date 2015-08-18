@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Page
 from django.template import RequestContext, loader
@@ -23,6 +23,6 @@ def create(request):
 		p = Page(name=request.POST['name'], url=request.POST['url'], comment=request.POST['comment'], 
 			contact_person=request.POST['contact_person'], next_update_at=request.POST['next_update_at'])
 		p.save()
-		return index(request)
+		return redirect('update_cycle:index')
 	else:
 		return new(request)
